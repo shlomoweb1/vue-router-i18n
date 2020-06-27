@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">{{$t('nav.home')}}</router-link> |
+      <router-link to="/about">{{$t('nav.about')}}</router-link> |
+      <template v-for="(lang, index) in $i18n.availableLocales.filter(x => x != $i18n.locale)">
+        <router-link :to="{path: $route.path, params: {locale: lang}}" :key="index+'_'+lang" :title="$t('language.'+lang)">{{$t('language.'+lang, lang)}}</router-link>
+        <template v-if="$i18n.availableLocales.filter(x => x != $i18n.locale).length != 1 && index != $i18n.availableLocales.filter(x => x != $i18n.locale).length -1"> | </template>
+      </template>
     </div>
     <router-view/>
   </div>

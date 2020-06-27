@@ -1,0 +1,13 @@
+{
+    "hello": "Hello World",
+    "about": "This is about page",
+    "nav": {
+        "home": "Home",
+        "about": "About"
+    },
+    "language": {
+        "he": "Hebrew",
+        "en": "English",
+        "ar": "Arabic"
+    }
+}
